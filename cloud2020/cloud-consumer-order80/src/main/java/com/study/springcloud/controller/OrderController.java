@@ -28,7 +28,7 @@ public class OrderController {
 
     @GetMapping(value = "/consumer/payment/create")
     public CommonrRsult<Payment> create(Payment payment) {
-        log.info("payment==[{}]", payment.getSerial());
+        log.info("payment==>[{}]", payment.getSerial());
         return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonrRsult.class);
     }
 
