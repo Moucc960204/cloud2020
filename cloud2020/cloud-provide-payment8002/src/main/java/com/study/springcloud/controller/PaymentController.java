@@ -26,7 +26,7 @@ public class PaymentController {
     private String serverPort;
 
     @PostMapping(value = "/payment/create")
-    public CommonrRsult create(@RequestBody Payment payment) {
+    public CommonrRsult create(@RequestBody Payment payment){
         log.info("payment==>[{}]", payment.getSerial());
         int result = paymentService.create(payment);
         log.info("result==>[{}]", result);
@@ -38,11 +38,11 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonrRsult create(@PathVariable("id") Long id) {
+    public CommonrRsult create(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("payment==>[{}]", payment);
         if (null != payment) {
-            return new CommonrRsult(200, "查询成功, serverPort:" + serverPort, payment);
+            return new CommonrRsult(200, "查询成功, , serverPort:" + serverPort, payment);
         } else {
             return new CommonrRsult(888, "查询失败", null);
         }
