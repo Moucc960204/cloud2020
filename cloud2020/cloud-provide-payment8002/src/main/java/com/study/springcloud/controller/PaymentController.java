@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: chenchen.mou
@@ -32,7 +33,7 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
     @PostMapping(value = "/payment/create")
-    public CommonrRsult create(@RequestBody Payment payment){
+    public CommonrRsult create(@RequestBody Payment payment) {
         log.info("payment==>[{}]", payment.getSerial());
         int result = paymentService.create(payment);
         log.info("result==>[{}]", result);
@@ -44,7 +45,7 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/get/{id}")
-    public CommonrRsult create(@PathVariable("id") Long id){
+    public CommonrRsult get(@PathVariable("id") Long id) {
         Payment payment = paymentService.getPaymentById(id);
         log.info("payment==>[{}]", payment);
         if (null != payment) {
@@ -55,24 +56,34 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/disCovery")
-    public Object disCovery(){
+    public Object disCovery() {
         List<String> services = discoveryClient.getServices();
         for (int i = 0; i < services.size(); i++) {
             log.info("service==>[{}]", services.get(i));
         }
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-SERVICE");
-        for(ServiceInstance instance: instances){
-            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ",instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
+        for (ServiceInstance instance : instances) {
+            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ", instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
         }
         List<ServiceInstance> instances1 = discoveryClient.getInstances("CLOUD-ORDER-SERVER");
-        for(ServiceInstance instance: instances1){
-            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ",instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
+        for (ServiceInstance instance : instances1) {
+            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ", instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
         }
         return this.discoveryClient;
     }
 
     @GetMapping("/payment/loadBalance")
-    public String getPaymentLoadBalance(){
+    public String getPaymentLoadBalance() {
+        return serverPort;
+    }
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 

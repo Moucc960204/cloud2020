@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: chenchen.mou
@@ -55,20 +56,30 @@ public class PaymentController {
     }
 
     @GetMapping(value = "/payment/disCovery")
-    public Object disCovery(){
+    public Object disCovery() {
         List<String> services = discoveryClient.getServices();
         for (int i = 0; i < services.size(); i++) {
             log.info("service==>[{}]", services.get(i));
         }
         List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PROVIDER-SERVICE");
-        for(ServiceInstance instance: instances){
-            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ",instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
+        for (ServiceInstance instance : instances) {
+            log.info("ServiceId==>[{}], Host==>[{}], Port==>[{}], Uri==[{}] ", instance.getServiceId(), instance.getHost(), instance.getPort(), instance.getUri());
         }
         return this.discoveryClient;
     }
 
     @GetMapping("/payment/loadBalance")
-    public String getPaymentLoadBalance(){
+    public String getPaymentLoadBalance() {
+        return serverPort;
+    }
+
+    @GetMapping(value = "/payment/feign/timeout")
+    public String paymentFeignTimeout() {
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return serverPort;
     }
 
