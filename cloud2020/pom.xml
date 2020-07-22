@@ -17,6 +17,7 @@
     <module>colud-eureka-server7002</module>
     <module>cloud-provide-payment8002</module>
     <module>cloud-consumer-feign-order80</module>
+     <module>cloud-provider-hystrix-payment8001</module>
   </modules>
 
   <!--统一管理jar包版本-->
