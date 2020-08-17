@@ -1,4 +1,4 @@
-package com.study.springboot.service;
+package com.study.springcloud.service;
 
 import com.study.springcloud.entities.CommonrRsult;
 import com.study.springcloud.entities.Payment;

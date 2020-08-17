@@ -1,6 +1,6 @@
-package com.study.springboot.controller;
+package com.study.springcloud.controller;
 
-import com.study.springboot.service.PaymentFeignService;
+import com.study.springcloud.service.PaymentFeignService;
 import com.study.springcloud.entities.CommonrRsult;
 import com.study.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;

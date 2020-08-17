@@ -1,4 +1,4 @@
-package com.study.springboot.service;
+package com.study.springcloud.service;
 
 /**
  * @Author: chenchen.mou

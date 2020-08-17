@@ -1,4 +1,4 @@
-package com.study.springboot.config;
+package com.study.springcloud.config;
 
 import feign.Logger;
 import org.springframework.context.annotation.Bean;

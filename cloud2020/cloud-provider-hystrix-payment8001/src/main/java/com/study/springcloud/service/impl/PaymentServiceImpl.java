@@ -1,6 +1,6 @@
-package com.study.springboot.service.impl;
+package com.study.springcloud.service.impl;
 
-import com.study.springboot.service.PaymentService;
+import com.study.springcloud.service.PaymentService;
 import org.springframework.stereotype.Service;
 
 import java.util.concurrent.TimeUnit;

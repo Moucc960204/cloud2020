@@ -1,18 +1,18 @@
-package com.study.springboot;
+package com.study.springcloud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * @Author: chenchen.mou
  * @Description:
- * @Date: create in 2020/7/22 19:54
+ * @Date: create in 2020/7/21 20:56
  */
 @SpringBootApplication
-public class PaymentHystrixMain8001 {
-
+@EnableFeignClients
+public class OrderFeignMain80 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentHystrixMain8001.class, args);
+        SpringApplication.run(OrderFeignMain80.class, args);
     }
-
 }
