@@ -9,7 +9,7 @@ import java.util.List;
  * @Description:
  * @Date: create in 2020/7/21 19:53
  */
-public interface MyloadBalance {
+public interface MyLoadBalance {
 
     ServiceInstance instance(List<ServiceInstance> serviceInstanceList);
 

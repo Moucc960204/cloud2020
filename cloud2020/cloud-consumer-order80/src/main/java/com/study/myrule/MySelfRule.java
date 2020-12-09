@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date: create in 2020/7/20 21:57
  */
 @Configuration
-public class MySelfrule {
+public class MySelfRule {
 
     @Bean
     public IRule myRule(){

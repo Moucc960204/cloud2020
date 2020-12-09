@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date: create in 2020/7/21 19:54
  */
 @Component
-public class MyloadBalanceImpl implements MyloadBalance {
+public class MyLoadBalanceImpl implements MyLoadBalance {
 
     private AtomicInteger atomicInteger = new AtomicInteger(0);
 
