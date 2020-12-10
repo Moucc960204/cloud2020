@@ -2,8 +2,7 @@ package com.study.springcloud.controller;
 
 import com.study.springcloud.entities.CommonrRsult;
 import com.study.springcloud.entities.Payment;
-import com.study.springcloud.myloadbalance.MyloadBalance;
-import com.sun.xml.internal.fastinfoset.CommonResourceBundle;
+import com.study.springcloud.myloadbalance.MyLoadBalance;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
@@ -34,7 +33,7 @@ public class OrderController {
     private RestTemplate restTemplate;
 
     @Autowired
-    private MyloadBalance myloadBalance;
+    private MyLoadBalance myloadBalance;
 
     @Autowired
     private DiscoveryClient discoveryClient;
