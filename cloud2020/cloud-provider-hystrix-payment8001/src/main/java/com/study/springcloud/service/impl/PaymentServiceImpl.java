@@ -15,7 +15,7 @@ public class PaymentServiceImpl implements PaymentService {
 
     @Override
     public String paymentInfoOk(Integer id) {
-        return "线程池:" + Thread.currentThread().getName() + "paymentInfo成功" + id;
+        return "线程池:" + Thread.currentThread().getName() + "paymentInfo成功id==>[{}]" + id;
     }
 
     @Override
@@ -26,6 +26,6 @@ public class PaymentServiceImpl implements PaymentService {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return "线程池:" + Thread.currentThread().getName() + "paymentInfoTimeOut超时id==>" + id + "耗时（秒）" + time;
+        return "线程池:" + Thread.currentThread().getName() + "paymentInfoTimeOut超时id==>[{}]" + id + "耗时 " + time + "（秒）";
     }
 }
